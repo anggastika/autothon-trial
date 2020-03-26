@@ -13,7 +13,10 @@ How To Run :
 1. Open Terminal / CMD
 2. going to project folder
 3. type "mvn clean verify"
+
 or
+
+How To Run via IDE :
 1. Load project in IDE
 2. Load / import maven dependency automatically
 3. run via "play" button (jUnit runner) or type command via terminal window "mvn clean verify" 
