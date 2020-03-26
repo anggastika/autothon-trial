@@ -11,3 +11,9 @@ Requirement :
 How To Run :
 1. Open Terminal / CMD
 2. type "mvn clean verify"
+
+Q : Where automation test report location ?
+A : \autothon-trial\target\site\serenity\index.html
+
+Q : Where scenario / test case file location ?
+A : \src\test\resources\features\consult_dictionary
