@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Serenity Reports</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<!--[if IE 7]>
+<!--<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">-->
+
+<link rel="stylesheet" href="fontawesome-free-5.7.2-web/css/all.min.css">
+<link rel="stylesheet" href="fontawesome-free-5.7.2-web/css/v4-shims.min.css">
+
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><link rel="stylesheet" href="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.css">
+<link rel="stylesheet" href="chartist/dist/chartist.min.css">
+<script src="chartist/dist/chartist.min.js"></script>
+<script src="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.js"></script><!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.19/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.19/datatables.min.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.19/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.19/datatables.bootstrap4.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/><!-- JQuery-UI -->
+<link type="text/css" href="jqueryui/1.11.2-start/jquery-ui.min.css" rel="Stylesheet" />
+<script type="text/javascript" src="jqueryui/1.11.2-start/jquery-ui.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.19/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.19/datatables.min.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.19/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.19/datatables.bootstrap4.min.css" rel="stylesheet" />
+
+
+
+
+    <script class="code" type="text/javascript">$(document).ready(function () {
+
+            $('.scenario-result-table').DataTable({
+                "order": [[0, "asc",], [3, "asc",]],
+                "pageLength": 10,
+                "language": {
+                    searchPlaceholder: "Filter",
+                    search: ""
+                }
+            });
+
+            // Results table
+            $('#test-results-table').DataTable({
+                "order": [[0, "asc",], [3, "asc",]],
+                "pageLength": 10,
+                "lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25, 50, 100, 200, "All"]]
+            });
+
+            $('#evidence-table').DataTable({
+                searching: false,
+                paging: false,
+                info: false
+            });
+
+            $(".feature-coverage-table").DataTable({
+                searching: false,
+                paging: false,
+                info: false
+            });
+
+            $(".feature-coverage-table-with-pagination").DataTable({
+                order: [[0, "asc",]],
+                pageLength: 10,
+                language: {
+                    searchPlaceholder: "Filter",
+                    search: ""
+                }
+            });
+        });
+    </script>
+</head>
+
+<body class="results-page">
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">Demo Project using Serenity and Cucumber</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+
+
+    <div id="contenttop">
+        <div class="middlebg">
+        <span class="breadcrumbs"><a href="index.html">Home</a>
+                    > Tag  (with Tag Systemtest)
+                > <span
+                    class="truncate-60">Regression</span>
+        </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="fa fa-check-square-o"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="fa fa-book"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="7ea0a5e2d679b9deeda9910ae4a9bcd3a281e0d908303a9e16e486103e98880c.html"><i class="fa fa-comments-o"></i> Capabilities</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="fa fa-comments-o"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 26-03-2020 23:10</span>
+    <br style="clear:left"/>
+</div>
+    <div class="clr"></div>
+    <div id="beforetable"></div>
+    <div id="results-dashboard">
+        <div class="middlb">
+            <div class="table">
+
+                <h2><i class='fa fa-tags'></i> Tag: Regression</h2>
+                <table class='overview'>
+                    <tr>
+                        <td width="375px" valign="top">
+                            <div class="test-count-summary">
+                                <div class="test-count-title">
+                                    10 test scenarios 
+                                     |
+                                        <a href="27459ead95fd80095cb50812321dab21ffdbb738338ad3a0fd6a68e581e875ad.csv" title="Download CSV"> <i class="fa fa-download"
+                                                                                        title="Download CSV"></i></a>
+
+
+                                </div>
+                            </div>
+
+                            <div>
+                                <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a data-toggle="tab" href="#summary"><i class="fas fa-home"></i> Summary</a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="tab" href="#tests"><i class="fas fa-tachometer-alt"></i> Test
+                                            Results</a>
+                                    </li>
+                                </ul>
+
+
+                                <div class="card border">
+                                    <div class="tab-content" id="pills-tabContent">
+                                        <div id="summary" class="tab-pane fade in active">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-sm-4">
+                                                            <div style="width:300px;"
+                                                                 class="chart-container automated-and-manual-results">
+                                                                <div class="ct-chart ct-square"></div>
+                                                            </div>
+                                                            <script>
+
+                                                                var labels = ['100%', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
+                                                                // Our series array that contains series objects or in this case series data arrays
+
+                                                                var series = [{meta: 'Passing tests (automated)', value: 10}, {meta: 'Passing tests (manual)', value: 0}, {meta: 'Pending tests (automated)', value: 0}, {meta: 'Pending tests (manual)', value: 0}, {meta: 'Ignored tests (automated)', value: 0}, {meta: 'Ignored tests (manual)', value: 0}, {meta: 'Skipped tests (automated)', value: 0}, {meta: 'Skipped tests (manual)', value: 0}, {meta: 'Failing tests (automated)', value: 0}, {meta: 'Failing tests (manual)', value: 0}, {meta: 'Broken tests (automated)', value: 0}, {meta: 'Broken tests (manual)', value: 0}, {meta: 'Compromised tests (automated)', value: 0}, {meta: 'Compromised tests (manual)', value: 0}];
+
+                                                                // As options we currently only set a static size of 300x200 px. We can also omit this and use aspect ratio containers
+                                                                // as you saw in the previous example
+                                                                var options = {
+                                                                    width: 350,
+                                                                    height: 300
+                                                                };
+
+
+                                                                new Chartist.Pie('.ct-chart', {
+                                                                    series: series,
+                                                                    labels: labels
+                                                                }, {
+                                                                    plugins: [Chartist.plugins.tooltip()],
+                                                                    donut: true,
+                                                                    donutWidth: 60,
+                                                                    donutSolid: true,
+                                                                    startAngle: 270,
+                                                                    showLabel: true
+                                                                }, options);
+
+
+                                                                $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                                                                    new Chartist.Pie('.ct-chart', {
+                                                                        series: series,
+                                                                        labels: labels
+                                                                    }, {
+                                                                        plugins: [Chartist.plugins.tooltip()],
+                                                                        donut: true,
+                                                                        donutWidth: 60,
+                                                                        donutSolid: true,
+                                                                        startAngle: 270,
+                                                                        showLabel: true
+                                                                    }, options);
+                                                                });
+
+
+                                                            </script>
+                                                    </div>
+                                                    <div class="col-sm-8">
+
+                                                        <table class="table">
+                                                            <thead>
+                                                            <tr>
+                                                                <th scope="col">Scenario Results (including rows of test
+                                                                    data)
+                                                                </th>
+                                                                <th scope="col" colspan="2" class="automated-stats">
+                                                                    Automated
+                                                                </th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <tr>
+                                                                    <td class="aggregate-result-count">
+                                                                        <a href="5b7c4ac7b7fe146157dbd7bcded262d302677b5734c011426713e2e99f721fd7.html"><i
+                                                                                    class='fa fa-check-circle-o success-icon'></i>&nbsp;Passing</a>
+                                                                    </td>
+                                                                <td class="automated-stats">10</td>
+                                                                <td class="automated-stats">100%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                    <td class="aggregate-result-count"><i
+                                                                                class='fa fa-stop-circle-o pending-icon'></i>&nbsp;Pending
+                                                                    </td>
+                                                                <td class="automated-stats">0</td>
+                                                                <td class="automated-stats"> </td>
+                                                            </tr>
+                                                            <tr>
+                                                                    <td class="aggregate-result-count"><i
+                                                                                class='fa fa-ban ignored-icon'></i>&nbsp;Ignored
+                                                                    </td>
+                                                                <td class="automated-stats">0</td>
+                                                                <td class="automated-stats"> </td>
+                                                            </tr>
+                                                            <tr>
+                                                                    <td class="aggregate-result-count"><i
+                                                                                class='fa fa-fast-forward skip-icon'></i>&nbsp;Skipped
+                                                                    </td>
+                                                                <td class="automated-stats">0</td>
+                                                                <td class="automated-stats"> </td>
+                                                            </tr>
+                                                            <tr>
+                                                                        <td colspan="3"><i
+                                                                                    class='fa fa-times failure-icon'></i>&nbsp;<em>Unsuccessful</em></a>
+                                                                        </td>
+                                                            </tr>
+                                                            <tr>
+                                                                    <td class="aggregate-result-count indented-error-category">
+                                                                        <i
+                                                                                class='fa fa-times-circle failure-icon'></i>&nbsp;Failed
+                                                                    </td>
+                                                                <td class="automated-stats">0</td>
+                                                                <td class="automated-stats"> </td>
+                                                            <tr>
+                                                                    <td class="aggregate-result-count indented-error-category">
+                                                                        <i
+                                                                                class='fa fa-exclamation-triangle error-icon'></i>&nbsp;Broken
+                                                                    </td>
+                                                                <td class="automated-stats">0</td>
+                                                                <td class="automated-stats"> </td>
+                                                            <tr>
+                                                                    <td class="aggregate-result-count indented-error-category">
+                                                                        <i
+                                                                                class='fa fa-chain-broken compromised-icon'></i>&nbsp;Compromised
+                                                                    </td>
+                                                                <td class="automated-stats">0</td>
+                                                                <td class="automated-stats"> </td>
+                                                            </tr>
+                                                            <tr class="summary-stats">
+                                                                <td class="aggregate-result-count">Total</td>
+                                                                <td class="automated-stats">10</td>
+                                                                <td class="automated-stats"></td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <table class="table">
+                                                            <thead>
+                                                            <tr>
+                                                                <th>Execution Time</th>
+                                                                <th>Clock Time</th>
+                                                                <th>Fastest Test</th>
+                                                                <th>Slowest Test</th>
+                                                                <th>Average Execution Time</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <tr>
+                                                                <td> 3m 6s</td>
+                                                                <td> 3m 10s</td>
+                                                                <td>11s</td>
+                                                                <td>28s</td>
+                                                                <td>18s</td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <h3>Functional Coverage Overview</h3>
+
+
+                                                                    <h4>Features</h4>
+
+                                                                    <table class="table feature-coverage-table"
+                                                                           id="Feature">
+                                                                        <thead>
+                                                                        <tr>
+                                                                            <th>Feature</th>
+                                                                            <th style="width:7.5em;">Scenarios</th>
+                                                                            <th style="width:7.5em;">% Pass</th>
+                                                                            <th style="width:7.5em;">Result</th>
+                                                                            <th>Coverage</th>
+                                                                        </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td>
+                                                                                        <a href="8de06c63bbb13cf7ee3b7fedb8db069ff46c3034fa4f0cfdd72b92c44d583a20.html">Stockbit Login</a>
+                                                                                </td>
+                                                                                <td>8</td>
+                                                                                <td>100%</td>
+                                                                                <td>
+                                                                                        <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="progress">
+                                                                                            <div class="progress-bar"
+                                                                                                 role="progressbar"
+                                                                                                 style="width: 100%; background-color: #30cb23"
+                                                                                                 aria-valuenow="8"
+                                                                                                 title="100% success"
+                                                                                                 aria-valuemin="0"
+                                                                                                 aria-valuemax="100">
+                                                                                            </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                        <a href="e341d30ff2ff63550b7894357acd8fe028d716b92f5270bbf767b943149fb73f.html">Stockbit Login Forgot Password</a>
+                                                                                </td>
+                                                                                <td>2</td>
+                                                                                <td>100%</td>
+                                                                                <td>
+                                                                                        <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="progress">
+                                                                                            <div class="progress-bar"
+                                                                                                 role="progressbar"
+                                                                                                 style="width: 100%; background-color: #30cb23"
+                                                                                                 aria-valuenow="2"
+                                                                                                 title="100% success"
+                                                                                                 aria-valuemin="0"
+                                                                                                 aria-valuemax="100">
+                                                                                            </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <h3>Tags</h3>
+
+                                                                <div class="card">
+                                                                    <div class="card-body">
+                                                                        <div>
+                                                                                <a href="f60fad32f613e02926b017ae8c846f5ffc7cbea1fbbdab9ed0da4cdc031c4b54.html">
+                                                                        <span class="badge"
+                                                                              style="background-color:#1D9918; margin:1em;padding:4px;"><i
+                                                                                    class="fa fa-tag"></i> Forgotpasswordfeature&nbsp;&nbsp;&nbsp;2</span>
+                                                                                </a>
+                                                                                <a href="612d9968525961aca8edfc2756ccd8ec0f3da9f2d707948bf0fbb46a58e8eeb9.html">
+                                                                        <span class="badge"
+                                                                              style="background-color:#1D9918; margin:1em;padding:4px;"><i
+                                                                                    class="fa fa-tag"></i> Positive&nbsp;&nbsp;&nbsp;3</span>
+                                                                                </a>
+                                                                                <a href="1d0c02fb9cb969bbd9e2f900ec6333e01b070c6fb5e26345e9374169cfab9e68.html">
+                                                                        <span class="badge"
+                                                                              style="background-color:#1D9918; margin:1em;padding:4px;"><i
+                                                                                    class="fa fa-tag"></i> Regression&nbsp;&nbsp;&nbsp;10</span>
+                                                                                </a>
+                                                                                <a href="705f21ef4e99024069a9d504af96d8f2901977dd42a4deba1d4409be81fb6e85.html">
+                                                                        <span class="badge"
+                                                                              style="background-color:#1D9918; margin:1em;padding:4px;"><i
+                                                                                    class="fa fa-tag"></i> Validemail&nbsp;&nbsp;&nbsp;1</span>
+                                                                                </a>
+                                                                                <a href="8f59fe16955db02db27deb2fc30b597af6824e0169aaa29e479126aa80040332.html">
+                                                                        <span class="badge"
+                                                                              style="background-color:#1D9918; margin:1em;padding:4px;"><i
+                                                                                    class="fa fa-tag"></i> Systemtest&nbsp;&nbsp;&nbsp;10</span>
+                                                                                </a>
+                                                                                <a href="260854e8c1cdede43d5f0fa6b94a3e751c9d636cebd6daa21f48ca86273e2295.html">
+                                                                        <span class="badge"
+                                                                              style="background-color:#1D9918; margin:1em;padding:4px;"><i
+                                                                                    class="fa fa-tag"></i> Invalidemail&nbsp;&nbsp;&nbsp;1</span>
+                                                                                </a>
+                                                                                <a href="6e39c849a6e37031ea037fe6cc2fe690d2e7d8051d7e95986e6f3b42e9ff4a05.html">
+                                                                        <span class="badge"
+                                                                              style="background-color:#1D9918; margin:1em;padding:4px;"><i
+                                                                                    class="fa fa-tag"></i> Negative&nbsp;&nbsp;&nbsp;7</span>
+                                                                                </a>
+                                                                                <a href="c721517496ffad35fe9a5d73f07a9bd15eb22da3cff8328e1d9f7ec70655c6b0.html">
+                                                                        <span class="badge"
+                                                                              style="background-color:#1D9918; margin:1em;padding:4px;"><i
+                                                                                    class="fa fa-tag"></i> Login&nbsp;&nbsp;&nbsp;5</span>
+                                                                                </a>
+                                                                                <a href="743eebd57a0e3251276dd60277f9ad333ab38ea7e537708b482ae243f5b400e4.html">
+                                                                        <span class="badge"
+                                                                              style="background-color:#1D9918; margin:1em;padding:4px;"><i
+                                                                                    class="fa fa-tag"></i> Loginfeature&nbsp;&nbsp;&nbsp;8</span>
+                                                                                </a>
+                                                                                <a href="5aabda53aaf732d832414f6b041dab3045666277e52c786a08ee2469705d233c.html">
+                                                                        <span class="badge"
+                                                                              style="background-color:#1D9918; margin:1em;padding:4px;"><i
+                                                                                    class="fa fa-tag"></i> Loginwithvalidemail&nbsp;&nbsp;&nbsp;1</span>
+                                                                                </a>
+                                                                                <a href="4ff59549ab73dfd635c55fa9ea97ad1e5a8c2c2e4a87bca596e55073769133d7.html">
+                                                                        <span class="badge"
+                                                                              style="background-color:#1D9918; margin:1em;padding:4px;"><i
+                                                                                    class="fa fa-tag"></i> Loginwithinvalidemail&nbsp;&nbsp;&nbsp;1</span>
+                                                                                </a>
+                                                                                <a href="68d1a58c0b2d69350da527b0b0277c7d2aa23b84d00a28a91473ffa0004df53f.html">
+                                                                        <span class="badge"
+                                                                              style="background-color:#1D9918; margin:1em;padding:4px;"><i
+                                                                                    class="fa fa-tag"></i> Wrongpass&nbsp;&nbsp;&nbsp;1</span>
+                                                                                </a>
+                                                                                <a href="2881ce2aeb761b2788bd0a43458797b43e138374ce092091b504d94674b7dac7.html">
+                                                                        <span class="badge"
+                                                                              style="background-color:#1D9918; margin:1em;padding:4px;"><i
+                                                                                    class="fa fa-tag"></i> Wrongusernameandwrongpass&nbsp;&nbsp;&nbsp;1</span>
+                                                                                </a>
+                                                                                <a href="71eded741a75122a65f711411012d9730f048141cbdf70ac4117d17a5dfc4ef4.html">
+                                                                        <span class="badge"
+                                                                              style="background-color:#1D9918; margin:1em;padding:4px;"><i
+                                                                                    class="fa fa-tag"></i> Blankpassword&nbsp;&nbsp;&nbsp;1</span>
+                                                                                </a>
+                                                                                <a href="0fa92758fbdd58c692bb04a938c9d715990f0543773c40f939a8ae4e2e5683dd.html">
+                                                                        <span class="badge"
+                                                                              style="background-color:#1D9918; margin:1em;padding:4px;"><i
+                                                                                    class="fa fa-tag"></i> Blankusername&nbsp;&nbsp;&nbsp;1</span>
+                                                                                </a>
+                                                                                <a href="a0ed6a372a22bb5f09f9f2e16c24241c7f4adebe7907a794c250fa428bd47f82.html">
+                                                                        <span class="badge"
+                                                                              style="background-color:#1D9918; margin:1em;padding:4px;"><i
+                                                                                    class="fa fa-tag"></i> Blankusernameandpassword&nbsp;&nbsp;&nbsp;1</span>
+                                                                                </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        <div id="tests" class="tab-pane fade">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <h3><i class="fas fa-cogs"></i> Automated Tests</h3>
+
+                                                            <table class="scenario-result-table table"
+                                                                   id="scenario-results">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>feature</th>
+                                                                    <th class="test-name-column">Scenario</th>
+                                                                    <th>Steps</th>
+                                                                    <th>Start Time</th>
+                                                                    <th>Duration</th>
+                                                                    <th>Result</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="e341d30ff2ff63550b7894357acd8fe028d716b92f5270bbf767b943149fb73f.html">Stockbit Login Forgot Password</a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="c1e8314f67a82f1108ca39463a9d2e884773e58868530612bc9c7cab1f379ab0.html">Send link reset with valid email</a>
+                                                                        </td>
+                                                                        <td>5</td>
+                                                                        <td>23:06:52</td>
+                                                                        <td>00:22</td>
+                                                                        <td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="e341d30ff2ff63550b7894357acd8fe028d716b92f5270bbf767b943149fb73f.html">Stockbit Login Forgot Password</a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="2683531bfb27a6e306a045b7da0f90b77b9ccf97aec29cce2908d9e2ff6600a9.html">Send link reset with invalid email</a>
+                                                                        </td>
+                                                                        <td>10</td>
+                                                                        <td>23:07:16</td>
+                                                                        <td>00:28</td>
+                                                                        <td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="8de06c63bbb13cf7ee3b7fedb8db069ff46c3034fa4f0cfdd72b92c44d583a20.html">Stockbit Login</a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="b818ce5564c85543d8189a817212e1c5fb668049efd58a382ab335178aa21f21.html">Success login</a>
+                                                                        </td>
+                                                                        <td>5</td>
+                                                                        <td>23:07:47</td>
+                                                                        <td>00:23</td>
+                                                                        <td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="8de06c63bbb13cf7ee3b7fedb8db069ff46c3034fa4f0cfdd72b92c44d583a20.html">Stockbit Login</a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="f21bd8d68e1cea69334c442f47a9a148bc45f967123b5a54cb440b08ee056fca.html">Success login with valid</a>
+                                                                        </td>
+                                                                        <td>5</td>
+                                                                        <td>23:08:12</td>
+                                                                        <td>00:26</td>
+                                                                        <td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="8de06c63bbb13cf7ee3b7fedb8db069ff46c3034fa4f0cfdd72b92c44d583a20.html">Stockbit Login</a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="5c72a74b73c7684c227f481caa17548ed19a3cc1468f0aeb3e5d520b6f3c661f.html">Fail login With Invalid Email</a>
+                                                                        </td>
+                                                                        <td>5</td>
+                                                                        <td>23:08:40</td>
+                                                                        <td>00:11</td>
+                                                                        <td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="8de06c63bbb13cf7ee3b7fedb8db069ff46c3034fa4f0cfdd72b92c44d583a20.html">Stockbit Login</a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="ba872ecd7a5b27bdf1402202f9494aa35af58bd71f4bd4c1cc000a21bd1f3a82.html">Fail login With Wrong Password</a>
+                                                                        </td>
+                                                                        <td>10</td>
+                                                                        <td>23:08:54</td>
+                                                                        <td>00:24</td>
+                                                                        <td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="8de06c63bbb13cf7ee3b7fedb8db069ff46c3034fa4f0cfdd72b92c44d583a20.html">Stockbit Login</a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="4fdf08e6738524fe6e1f265662bbdd7ccf4e4148d25c9d6e07418bb5253645dc.html">Fail login With Wrong Username And Wrong Password</a>
+                                                                        </td>
+                                                                        <td>5</td>
+                                                                        <td>23:09:20</td>
+                                                                        <td>00:12</td>
+                                                                        <td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="8de06c63bbb13cf7ee3b7fedb8db069ff46c3034fa4f0cfdd72b92c44d583a20.html">Stockbit Login</a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="e1f8e23969c822d155ec915c4c3e4772cb70738eefd03f68a8ad527183164ac7.html">Fail login With Blank Password</a>
+                                                                        </td>
+                                                                        <td>5</td>
+                                                                        <td>23:09:34</td>
+                                                                        <td>00:13</td>
+                                                                        <td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="8de06c63bbb13cf7ee3b7fedb8db069ff46c3034fa4f0cfdd72b92c44d583a20.html">Stockbit Login</a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="ab30ce3498a671f4955f7192dbfd717caa9d4b5c797b6b4addedcb38070e3330.html">Fail login With Blank Username</a>
+                                                                        </td>
+                                                                        <td>5</td>
+                                                                        <td>23:09:50</td>
+                                                                        <td>00:11</td>
+                                                                        <td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result SUCCESS">
+                                                                        <td>
+                                                                                <a href="8de06c63bbb13cf7ee3b7fedb8db069ff46c3034fa4f0cfdd72b92c44d583a20.html">Stockbit Login</a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="400d7fe7dd6d67fc3e4322ca51ea12ecb740c03040ffaf566cc0292b521b5a5f.html">Fail login With Blank Username and Blank Password</a>
+                                                                        </td>
+                                                                        <td>5</td>
+                                                                        <td>23:10:02</td>
+                                                                        <td>00:11</td>
+                                                                        <td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                                    style="display:none">SUCCESS</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <h3><i class="fas fa-edit"></i> Manual Tests</h3>
+
+                                                            No manual tests were recorded
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                        </td>
+
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div id="beforefooter"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <span class="version">Serenity BDD version 2.0.54</span>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

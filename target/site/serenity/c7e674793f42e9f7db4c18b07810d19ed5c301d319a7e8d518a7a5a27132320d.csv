@@ -1,0 +1,4 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Stockbit Login Forgot Password","Send link reset with valid email","SUCCESS","2020-03-26T23:06:52.694+07:00[Asia/Bangkok]","0.0","22.31"
+"Stockbit Login","Success login","SUCCESS","2020-03-26T23:07:47.183+07:00[Asia/Bangkok]","0.0","23.68"
+"Stockbit Login","Success login with valid","SUCCESS","2020-03-26T23:08:12.28+07:00[Asia/Bangkok]","0.0","26.96"
