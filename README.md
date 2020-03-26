@@ -1,7 +1,7 @@
 # autothon-trial
 For Stockbit Login Test UI Automation
 
-Requirement :
+Environment Requirement :
 1. java version "1.8.0_211"
 2. Apache Maven 3.6.1
 3. Intellij IDE or Eclipse IDE (preffer IntelliJ, because I'm code in IntelliJ)
