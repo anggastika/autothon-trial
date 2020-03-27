@@ -1,5 +1,5 @@
 # autothon-trial
-For Stockbit Login Test UI Automation
+For Stockbit Login UI Automated Test
 
 Environment Requirement :
 1. java version "1.8.0_211"
