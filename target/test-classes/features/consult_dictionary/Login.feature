@@ -33,7 +33,7 @@ Feature: Stockbit Login
     Then [stockbit - Login] showing error message
 
   @Negative @SystemTest @Regression @Login @WrongUsername
-  Scenario: Fail login With Wrong Password
+  Scenario: Fail login With Wrong Username
     When [stockbit - Login] user input username 'anggastiki'
     And [stockbit - Login] user input password 'automation88'
     And [stockbit - Login] user click login button
@@ -66,3 +66,17 @@ Feature: Stockbit Login
     And [stockbit - Login] user input password ''
     And [stockbit - Login] user click login button
     Then [stockbit - Login] showing tooltip and button login is still visible
+
+#  @Positive @SystemTest @Regression @LoginWithGoogle
+#  Scenario: Success login
+#    When [stockbit - Login] user click login Google Button
+#    And [stockbit - GooglePopup] user input google email
+#    And [stockbit - GooglePopup] user input password email
+#    Then [stockbit - Homepage] user is in homepage
+#
+#  @Positive @SystemTest @Regression @LoginWithFB
+#  Scenario: Success login
+#    When [stockbit - Login] user click login Google Button
+#    And [stockbit - FBPopup] user input google email
+#    And [stockbit - FBPopup] user input password email
+#    Then [stockbit - Homepage] user is in homepage

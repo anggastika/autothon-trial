@@ -1,5 +1,5 @@
 @ForgotPasswordFeature
-Feature: Stockbit Login Forgot Password
+Feature: Stockbit Forgot Password
 
   Background:
     Given [stockbit - Login] user open stockbit login page
@@ -18,7 +18,7 @@ Feature: Stockbit Login Forgot Password
     Then [stockbit - Login] showing error message
 
   @Negative @SystemTest @Regression @WrongEmailFormat
-  Scenario: Send link reset with invalid email
+  Scenario: Send link reset with invalid email format
     And [stockbit - Forgot] user input valid email 'acink'
     And [stockbit - Forgot] user click submit
     Then [stockbit - Login] showing error message
