@@ -12,8 +12,9 @@ Environment Requirement :
 
 How To Run :
 1. Open Terminal / CMD
-2. going to project folder
-3. type "mvn clean verify"
+2. going to project folder via Terminal/Command prompt
+3. type "mvn clean install" (without quotes) and Enter
+4. type "mvn clean verify" (without quotes) and Enter
 
 or
 
