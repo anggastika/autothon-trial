@@ -1,5 +1,5 @@
 # autothon-trial
-For Stockbit Login UI Automated Test
+The Project is for Stockbit Login UI Automated Test (QA Engineer Recruitment)
 
 For Environment Requirement, please prepare :
 1. JDK java version "1.8.0_211" (prefer Java 8)
