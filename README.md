@@ -24,7 +24,7 @@ How To Run via IDE :
 3. run via "play" button (jUnit runner) or type command via terminal window "mvn clean verify" 
 
 Question : Where automation test report location ?
-Answer : /target/site/serenity/index.html (Open with Chromr or Firefox Web Browser) 
+Answer : /target/site/serenity/index.html (Open with Chrome or Firefox Web Browser) 
 
 Question : Where scenario / test case file location ?
 Answer : /src/test/resources/features/consult_dictionary
